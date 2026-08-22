@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://share.google/vpvwK8DPLBXhOjQa6">
-    <title>تحميل ويندوز 12 | Download Windows 12</title>
+    <title>مركز تحميل نظام ويندوز | Windows Download Hub</title>
     <style>
-        
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.55);
+            --card-border: rgba(255, 255, 255, 0.15);
             --accent-color: #0078d4;
             --accent-hover: #005a9e;
             --text-color: #f8fafc;
-            --text-secondary: #94a3b8;
+            --text-secondary: #cbd5e1;
         }
 
         * {
@@ -24,7 +23,9 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
@@ -36,129 +37,142 @@
 
         header {
             width: 100%;
-            max-width: 900px;
+            max-width: 1100px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 10px 0;
+            padding: 15px 0;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .lang-btn {
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            border: 1px solid var(--text-secondary);
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         main {
-            max-width: 800px;
+            max-width: 1100px;
             width: 100%;
             text-align: center;
-            margin: 40px 0;
+            margin: 20px 0;
         }
 
-        .hero-card {
-            background-color: var(--card-bg);
-            padding: 40px 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .hero-title {
+            margin-bottom: 30px;
         }
 
-        h1 {
+        .hero-title h1 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #ffffff;
         }
 
-        p.description {
+        .hero-title p {
             color: var(--text-secondary);
             font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
         }
 
-        .download-options {
+        /* شبكة عرض الإصدارات */
+        .os-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .os-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--card-border);
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            max-width: 400px;
-            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .btn-download {
+        .os-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(0, 120, 212, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 120, 212, 0.2);
+        }
+
+        .os-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .os-card h2 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .os-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: rgba(0, 120, 212, 0.2);
+            color: #38edf8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(56, 237, 248, 0.3);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .btn-go {
+            width: 100%;
             background-color: var(--accent-color);
             color: white;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            padding: 12px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
             font-weight: bold;
             text-decoration: none;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s ease;
         }
 
-        .btn-download:hover {
+        .btn-go:hover {
             background-color: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-download.secondary {
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-        }
-
-        .btn-download.secondary:hover {
-            background-color: var(--accent-color);
-        }
-
-        .specs {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-around;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-        }
-
-        .spec-item {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .spec-title {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .spec-value {
-            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 120, 212, 0.4);
         }
 
         footer {
             color: var(--text-secondary);
             font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -166,97 +180,99 @@
 
     <header>
         <div class="logo">
-            <span>💻</span> Windows 12
+            <span>💻</span> مركز تحميل ويندوز
         </div>
-        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">English</button>
     </header>
 
     <main>
-        <div class="hero-card">
-            <h1 id="title">تحميل ويندوز 12 ISO</h1>
-            <p class="description" id="desc">احصل على الأداء العالي والواجهة الحديثة المدعومة بالذكاء الاصطناعي. اختر لغة النسخة المفضل لديك للبدء في التحميل المباشر.</p>
+        <div class="hero-title">
+            <h1>اختر إصدار ويندوز للتحميل</h1>
+            <p>حمّل جميع نسخ ويندوز الأصلية بروابط مباشرة وسريعة بصيغة ISO</p>
+        </div>
+
+        <div class="os-grid">
             
-            <div class="download-options">
-                <a href="#" class="btn-download" id="btnAr">
-                    <span>📥</span> <span id="txtBtnAr">تحميل النسخة العربية (64-bit)</span>
-                </a>
-                <a href="#" class="btn-download secondary" id="btnEn">
-                    <span>📥</span> <span id="txtBtnEn">تحميل النسخة الإنجليزية (64-bit)</span>
+            <!-- ويندوز 12 -->
+            <div class="os-card">
+                <div>
+                    <div class="os-icon">🚀</div>
+                    <span class="badge">الجيل القادم</span>
+                    <h2>Windows 12</h2>
+                    <p>النسخة المستقبلية المجهزة بتقنيات الذكاء الاصطناعي المتقدمة والأداء الفائق.</p>
+                </div>
+                <!-- استبدل LINK_WINDOWS_12 برابط الصفحة التي أنشأناها أو رابطك المباشر -->
+                <a href="LINK_WINDOWS_12" class="btn-go">
+                    <span>الانتقال للتحميل</span>
+                    <span>⬅️</span>
                 </a>
             </div>
 
-            <div class="specs">
-                <div class="spec-item">
-                    <span class="spec-title" id="lblVer">الإصدار</span>
-                    <span class="spec-value">v24H2 (Official)</span>
+            <!-- ويندوز 11 -->
+            <div class="os-card">
+                <div>
+                    <div class="os-icon">🪟</div>
+                    <span class="badge">الأحدث حالياً</span>
+                    <h2>Windows 11</h2>
+                    <p>واجهة مريحة، دعم محسّن للألعاب والتطبيقات، وأعلى مستويات الأمان.</p>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-title" id="lblSize">الحجم</span>
-                    <span class="spec-value">5.4 GB</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-title" id="lblArch">المعمارية</span>
-                    <span class="spec-value">x64</span>
-                </div>
+                <!-- ضع رابط صفحة/تحميل ويندوز 11 هنا -->
+                <a href="LINK_WINDOWS_11" class="btn-go">
+                    <span>الانتقال للتحميل</span>
+                    <span>⬅️</span>
+                </a>
             </div>
+
+            <!-- ويندوز 10 -->
+            <div class="os-card">
+                <div>
+                    <div class="os-icon">🖥️</div>
+                    <span class="badge">الأكثر استقراراً</span>
+                    <h2>Windows 10</h2>
+                    <p>النظام الأكثر انتشاراً واستقراراً لجميع أنواع الأجهزة والمهمات.</p>
+                </div>
+                <!-- ضع رابط صفحة/تحميل ويندوز 10 هنا -->
+                <a href="LINK_WINDOWS_10" class="btn-go">
+                    <span>الانتقال للتحميل</span>
+                    <span>⬅️</span>
+                </a>
+            </div>
+
+            <!-- ويندوز 8.1 -->
+            <div class="os-card">
+                <div>
+                    <div class="os-icon">💻</div>
+                    <span class="badge">سريع وخفيف</span>
+                    <h2>Windows 8.1</h2>
+                    <p>أداء خفيف وسريع مناسب للأجهزة المتوسطة والقديمة نسبياً.</p>
+                </div>
+                <!-- ضع رابط صفحة/تحميل ويندوز 8.1 هنا -->
+                <a href="LINK_WINDOWS_8" class="btn-go">
+                    <span>الانتقال للتحميل</span>
+                    <span>⬅️</span>
+                </a>
+            </div>
+
+            <!-- ويندوز 7 -->
+            <div class="os-card">
+                <div>
+                    <div class="os-icon">⚙️</div>
+                    <span class="badge">للأجهزة الضعيفة</span>
+                    <h2>Windows 7</h2>
+                    <p>النسخة الكلاسيكية الخفيفة جداً والمناسبة للأجهزة القديمة المحدودة.</p>
+                </div>
+                <!-- ضع رابط صفحة/تحميل ويندوز 7 هنا -->
+                <a href="LINK_WINDOWS_7" class="btn-go">
+                    <span>الانتقال للتحميل</span>
+                    <span>⬅️</span>
+                </a>
+            </div>
+
         </div>
     </main>
 
     <footer>
-        <p id="footerTxt">&copy; 2026 جميع الحقوق محفوظة - صفحة تحميل ويندوز 12</p>
+        <p>&copy; 2026 جميع الحقوق محفوظة - مركز تحميل أنظمة ويندوز</p>
     </footer>
 
-    <script>
-        const content = {
-            ar: {
-                title: "تحميل ويندوز 12 ISO",
-                desc: "احصل على الأداء العالي والواجهة الحديثة المدعومة بالذكاء الاصطناعي. اختر لغة النسخة المفضلة لديك للبدء في التحميل المباشر.",
-                btnAr: "تحميل النسخة العربية (64-bit)",
-                btnEn: "تحميل النسخة الإنجليزية (64-bit)",
-                lblVer: "الإصدار",
-                lblSize: "الحجم",
-                lblArch: "المعمارية",
-                footerTxt: "© 2026 جميع الحقوق محفوظة - صفحة تحميل ويندوز 12",
-                langBtn: "English",
-                dir: "rtl",
-                lang: "ar"
-            },
-            en: {
-                title: "Download Windows 12 ISO",
-                desc: "Get high performance and a modern interface powered by AI. Choose your preferred language version to start the direct download.",
-                btnAr: "Download Arabic Version (64-bit)",
-                btnEn: "Download English Version (64-bit)",
-                lblVer: "Version",
-                lblSize: "Size",
-                lblArch: "Architecture",
-                footerTxt: "© 2026 All Rights Reserved - Windows 12 Download Page",
-                langBtn: "العربية",
-                dir: "ltr",
-                lang: "en"
-            }
-        };
-
-        let currentLang = 'ar';
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            const data = content[currentLang];
-
-            // Update HTML dir and lang attributes
-            document.documentElement.setAttribute('dir', data.dir);
-            document.documentElement.setAttribute('lang', data.lang);
-
-            // Update Text Content
-            document.getElementById('title').innerText = data.title;
-            document.getElementById('desc').innerText = data.desc;
-            document.getElementById('txtBtnAr').innerText = data.btnAr;
-            document.getElementById('txtBtnEn').innerText = data.btnEn;
-            document.getElementById('lblVer').innerText = data.lblVer;
-            document.getElementById('lblSize').innerText = data.lblSize;
-            document.getElementById('lblArch').innerText = data.lblArch;
-            document.getElementById('footerTxt').innerText = data.footerTxt;
-            document.getElementById('langToggle').innerText = data.langBtn;
-        }
-    </script>
 </body>
 </html>
